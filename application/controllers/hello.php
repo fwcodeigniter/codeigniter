@@ -7,7 +7,7 @@
 	{
 		
 		public function index() {
-			echo "Hello";
+			echo "Hello world";
 		}
 	}
  ?>
