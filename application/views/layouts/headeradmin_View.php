@@ -73,9 +73,9 @@
 								
 								<li class="dropdown active"><a href="#">Danh mục<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Nhóm hàng</a></li>
-										<li><a href="product-details.html">Hàng hóa</a></li> 
-										<li><a href="checkout.html">Tài khoản</a></li> 
+                                        <li><a href="<?php echo $base_url; ?>category">Nhóm hàng</a></li>
+										<li><a href="<?php echo $base_url; ?>product">Hàng hóa</a></li> 
+										<li><a href="<?php echo $base_url; ?>user">Tài khoản</a></li> 
                                     </ul>
                                 </li> 
 								<li class="dropdown"><a href="#">Báo cáo<i class="fa fa-angle-down"></i></a>
