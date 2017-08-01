@@ -3,7 +3,7 @@
 	/**
 	* 
 	*/
-	class Admin extends MY_Controller
+	class Contruction extends MY_Controller
 	{
 		function __construct() 
 		{
@@ -14,9 +14,7 @@
 		public function index()
 		{
 			$data['base_url'] = base_url();
-			$this->load->view('layouts/headeradmin_View',$data);
-			$this->load->view('admin/dashboard_View',$data);
-			$this->load->view('layouts/footer_View',$data);
+			$this->load->view('errors/cli/error_contruction',$data);
 		}
 	}
  ?>

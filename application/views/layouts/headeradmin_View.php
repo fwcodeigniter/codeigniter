@@ -55,51 +55,7 @@
 			</div>
 		</div><!--/header_top-->
 		
-		<div class="header-middle"><!--header-middle-->
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-4">
-						<div class="logo pull-left">
-							<a href=""><img src="<?php echo $base_url; ?>/public/images/home/logo.png" alt="" /></a>
-						</div>
-						<div class="btn-group pull-right">
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									Việt Nam
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">US</a></li>
-									<li><a href="#">JP</a></li>
-								</ul>
-							</div>
-							
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									VNĐ
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Dollar</a></li>
-									<li><a href="#">Yen</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-8">
-						<div class="shop-menu pull-right">
-							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-user"></i> Tài khoản</a></li>
-								<li><a href="<?php echo $base_url; ?>checkout"><i class="fa fa-crosshairs"></i> Thanh toán</a></li>
-								<li><a href="<?php echo $base_url; ?>cart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
-								<li><a href="<?php echo $base_url; ?>login"><i class="fa fa-lock"></i> Đăng nhập</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--/header-middle-->
-	
+		
 		<div class="header-bottom"><!--header-bottom-->
 			<div class="container">
 				<div class="row">
@@ -114,32 +70,26 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="<?php echo $base_url; ?>home" class="active">Home</a></li>
-								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
+								
+								<li class="dropdown active"><a href="#">Danh mục<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Products</a></li>
-										<li><a href="product-details.html">Product Details</a></li> 
-										<li><a href="checkout.html">Checkout</a></li> 
-										<li><a href="cart.html">Cart</a></li> 
-										<li><a href="login.html">Login</a></li> 
+                                        <li><a href="shop.html">Nhóm hàng</a></li>
+										<li><a href="product-details.html">Hàng hóa</a></li> 
+										<li><a href="checkout.html">Tài khoản</a></li> 
                                     </ul>
                                 </li> 
-								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
+								<li class="dropdown"><a href="#">Báo cáo<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Blog List</a></li>
-										<li><a href="blog-single.html">Blog Single</a></li>
+                                        <li><a href="blog.html">Theo sản phẩm</a></li>
+										<li><a href="blog-single.html">Theo hóa đơn</a></li>
                                     </ul>
                                 </li> 
-								<li><a href="404.html">404</a></li>
-								<li><a href="contact-us.html">Liên hệ</a></li>
+								<li><a href="404.html">Đổi mật khẩu</a></li>
+								<li><a href="contact-us.html">Đăng xuất</a></li>
 							</ul>
 						</div>
 					</div>
-					<div class="col-sm-3">
-						<div class="search_box pull-right">
-							<input type="text" placeholder="Tìm kiếm..."/>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 		</div><!--/header-bottom-->

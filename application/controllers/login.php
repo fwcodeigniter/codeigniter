@@ -3,7 +3,7 @@
 	/**
 	* 
 	*/
-	class Admin extends MY_Controller
+	class Login extends MY_Controller
 	{
 		function __construct() 
 		{
@@ -14,8 +14,9 @@
 		public function index()
 		{
 			$data['base_url'] = base_url();
-			$this->load->view('layouts/headeradmin_View',$data);
-			$this->load->view('admin/dashboard_View',$data);
+			//Load view trang chủ lên
+			$this->load->view('layouts/header_View',$data);
+			$this->load->view('admin/login_View',$data);
 			$this->load->view('layouts/footer_View',$data);
 		}
 	}

@@ -6,6 +6,7 @@
 	class MY_Controller extends CI_Controller
 	{
 		var $data = array();
+
 		function __construct() 
 		{
 			//Gọi đến hàm khởi tạo của cha
