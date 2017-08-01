@@ -3,7 +3,7 @@
 	/**
 	* 
 	*/
-	class Admin extends MY_Controller
+	class Dashboard extends MY_Controller
 	{
 		function __construct() 
 		{
@@ -13,10 +13,9 @@
 		//Hàm load trang chủ
 		public function index()
 		{
-			$data['base_url'] = base_url();
-			$this->load->view('layouts/headeradmin_View',$data);
+			$data = array('base_url'=> base_url());
+			//Load view trang chủ lên
 			$this->load->view('admin/dashboard_View',$data);
-			$this->load->view('layouts/footer_View',$data);
 		}
 	}
  ?>

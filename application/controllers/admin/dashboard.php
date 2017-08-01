@@ -15,7 +15,10 @@
 		{
 			$data = array('base_url'=> base_url());
 			//Load view trang chủ lên
+
+			$this->load->view('layouts/headeradmin_View',$data);
 			$this->load->view('admin/dashboard_View',$data);
+			$this->load->view('layouts/footer_View',$data);
 		}
 	}
  ?>
