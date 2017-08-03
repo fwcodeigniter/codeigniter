@@ -3,7 +3,7 @@
 	/**
 	* 
 	*/
-	class Dashboard extends MY_Controller
+	class Dashboard extends My_Controller
 	{
 		function __construct() 
 		{
@@ -13,9 +13,7 @@
 		//Hàm load trang chủ
 		public function index()
 		{
-			$data = array('base_url'=> base_url());
-			//Load view trang chủ lên
-
+			$data['base_url'] = base_url();
 			$this->load->view('layouts/headeradmin_View',$data);
 			$this->load->view('admin/dashboard_View',$data);
 			$this->load->view('layouts/footer_View',$data);

@@ -115,7 +115,7 @@
 			}
 			else
 			{
-				$this->db->order_by('id','desc');
+				$this->db->order_by('id','ASC');
 			}
 
 			if (isset($input['limit'][0]) && isset($input['limit'][1])) {

@@ -1652,16 +1652,31 @@ h2.title {
   
 }
 
+.cart_edit  {
+  margin-right: -12px;
+  overflow: hidden;
+}
+
+
+.cart_edit a {
+  background:#00CC33;
+  color: #FFFFFF;
+  padding: 5px 7px;
+  font-size: 16px
+}
+
+.cart_edit a:hover {
+  background:#FE980F
+}
 
 .cart_delete  {
-  display: block;
   margin-right: -12px;
   overflow: hidden;
 }
 
 
 .cart_delete a {
-  background:#F0F0E9;
+  background:#FF0000;
   color: #FFFFFF;
   padding: 5px 7px;
   font-size: 16px

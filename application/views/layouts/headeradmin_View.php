@@ -16,6 +16,7 @@
     <link href="<?php echo $base_url; ?>/public/css/animate.css" rel="stylesheet">
 	<link href="<?php echo $base_url; ?>/public/css/main.css" rel="stylesheet">
 	<link href="<?php echo $base_url; ?>/public/css/responsive.css" rel="stylesheet">
+	<link href="<?php echo $base_url; ?>/public/css/hstyles.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -73,9 +74,10 @@
 								
 								<li class="dropdown active"><a href="#">Danh mục<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="<?php echo $base_url; ?>category">Nhóm hàng</a></li>
-										<li><a href="<?php echo $base_url; ?>product">Hàng hóa</a></li> 
-										<li><a href="<?php echo $base_url; ?>user">Tài khoản</a></li> 
+                                        <li><a href="<?php echo $base_url; ?>admin/category">Nhóm hàng</a></li>
+										<li><a href="<?php echo $base_url; ?>admin/product">Hàng hóa</a></li> 
+										<li><a href="<?php echo $base_url; ?>admin/user">Tài khoản</a></li>
+										<li><a href="<?php echo $base_url; ?>admin/brand">Thương hiệu</a></li> 
                                     </ul>
                                 </li> 
 								<li class="dropdown"><a href="#">Báo cáo<i class="fa fa-angle-down"></i></a>
