@@ -1,10 +1,16 @@
 <section id="form"><!--form-->
 		<div class="container">
+			<?php if (isset($fail)){
+				echo '<div style="color: red"><i><h4>'.$fail.'</h4><i></div>';
+			}
+
+			?>
+			
 			<div class="row">
 				<div class="col-sm-4 col-sm-offset-1">
 					<div class="login-form"><!--login form-->
 						<h2>Đăng nhập</h2>
-						<form action="<?php echo $base_url; ?>signin" method="POST">
+						<form action="<?php echo $base_url; ?>admin/signin" method="POST">
 							<input type="text" placeholder="Tên đăng nhập" name="txtUser" />
 							<input type="password" placeholder="Mật khẩu" name="txtPass" />
 							<span>
@@ -21,10 +27,11 @@
 				<div class="col-sm-4">
 					<div class="signup-form"><!--sign up form-->
 						<h2>Tạo tài khoản mới</h2>
-						<form action="" >
+						<form action="<?php echo $base_url; ?>admin/signin/add" method="POST">
 							<input type="text" placeholder="Tên đăng nhập" name="txtUser" />
-							<input type="password" placeholder="Mật khẩu" name="txtUser" />
-							<input type="email" placeholder="Địa chỉ Email" name="txtUser" />
+							<input type="password" placeholder="Mật khẩu" name="txtPass" />
+							<input type="email" placeholder="Địa chỉ Email" name="txtEmail" />
+							<input type="text" placeholder="Số điện thoại" name="txtPhone" />
 							<button type="submit" class="btn btn-default">Đăng ký</button>
 						</form>
 					</div><!--/sign up form-->
