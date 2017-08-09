@@ -9,13 +9,21 @@
 		{
 			//Gọi đến hàm khởi tạo của cha
 			parent::__construct();
-			//Load thư viện Url
-			$this->load->helper('url');
+			$this->load->model('category_model');
+			$this->load->model('brand_model');
+			$this->load->model('product_model');
+			//load Database
+			$this->load->database();
 		}
 		//Hàm load trang chủ
 		public function index()
 		{
-			$data = array('base_url'=> base_url());
+			$data['category'] = $this->category_model->get_list();
+			$data['product'] = $this->product_model->get_list();
+			$data['brand'] = $this->brand_model->get_list();
+			$data['pro_count'] = $this->product_model->get_pro_count_by_brand();
+
+			$data['base_url'] = base_url();
 			//Load view trang chủ lên
 			$this->load->view('layouts/header_View',$data);
 			$this->load->view('layouts/slider_View',$data);

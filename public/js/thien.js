@@ -8,3 +8,14 @@ function confirmDelete(){
 		alert('không');
 	}
 }
+
+function file_change(f){
+	alert('ok');
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        var img = document.getElementById("img");
+        img.src = e.target.result;
+        img.style.display = "inline";
+    };
+    reader.readAsDataURL(f.files[0]);
+}

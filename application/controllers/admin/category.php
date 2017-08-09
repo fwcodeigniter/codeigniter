@@ -25,7 +25,7 @@
 		}
 		public function add()
 		{
-			$dulieu = array('cat_name'=>$this->input->post('txtName'));
+			$dulieu = array('name'=>$this->input->post('txtName'));
 			if ($this->category_model->create($dulieu)) {
 				$data['result'] = TRUE;
 			}
@@ -57,7 +57,7 @@
 		}
 		public function update($id = '')
 		{
-			$dulieu = array('cat_name'=>$this->input->post('txtName'));
+			$dulieu = array('name'=>$this->input->post('txtName'));
 			if ($this->category_model->update($id, $dulieu)) {
 				$data['result'] = TRUE;
 			}

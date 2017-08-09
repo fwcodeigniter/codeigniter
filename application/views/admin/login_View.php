@@ -28,10 +28,10 @@
 					<div class="signup-form"><!--sign up form-->
 						<h2>Tạo tài khoản mới</h2>
 						<form action="<?php echo $base_url; ?>admin/signin/add" method="POST">
-							<input type="text" placeholder="Tên đăng nhập" name="txtUser" />
-							<input type="password" placeholder="Mật khẩu" name="txtPass" />
+							<input type="text" placeholder="Tên đăng nhập" name="txtUser" required pattern="^[a-zA-Z]+[a-zA-Z0-9]{5,33}"/>
+							<input type="password" placeholder="Mật khẩu" name="txtPass" required pattern="^[a-zA-Z]+[a-zA-Z0-9]{5,33}" />
 							<input type="email" placeholder="Địa chỉ Email" name="txtEmail" />
-							<input type="text" placeholder="Số điện thoại" name="txtPhone" />
+							<input type="text" placeholder="Số điện thoại" name="txtPhone" required minlength="10" maxlength="11" pattern="^0+[0-9]{9,10}"/>
 							<button type="submit" class="btn btn-default">Đăng ký</button>
 						</form>
 					</div><!--/sign up form-->

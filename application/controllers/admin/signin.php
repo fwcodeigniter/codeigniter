@@ -19,32 +19,32 @@
 		{
 			$data['base_url'] = base_url();
 			$data['user'] = $this->user_model->get_list();
-			$dulieu = array('user_name'=>$this->input->post('txtUser'),
-							'user_pass'=>$this->input->post('txtPass'));
+			$dulieu = array('name'=>$this->input->post('txtUser'),
+							'pass'=>$this->input->post('txtPass'));
 			$isLogin = 0;
 
 			
 			foreach ($data['user'] as $key => $value) {
-				if (($value->user_name == $dulieu['user_name'])&&($value->user_pass == $dulieu['user_pass'])) {
+				if (($value->name == $dulieu['name'])&&($value->pass == $dulieu['pass'])) {
 					$isLogin = 1;
 					$activeuser = array('id' => $value->id,
-											'user_name' => $value->user_name,
-											'user_pass' => $value->user_pass,
-											'user_dname' => $value->user_dname,
-											'user_phone' => $value->user_phone,
-											'user_email' => $value->user_email,
-											'user_permission' => $value->user_permission);
+											'name' => $value->name,
+											'pass' => $value->pass,
+											'dname' => $value->dname,
+											'phone' => $value->phone,
+											'email' => $value->email,
+											'permission' => $value->permission);
 					$this->session->set_userdata($activeuser);
 					break;
 				}
-				if (($value->user_name == $dulieu['user_name'])&&($value->user_pass != $dulieu['user_pass'])) {
+				if (($value->name == $dulieu['name'])&&($value->pass != $dulieu['pass'])) {
 					$isLogin = 2;
 					
 					break;
 				}
 			}
 			if ($isLogin == 1) {
-				if ($this->session->userdata['user_permission']) {
+				if ($this->session->userdata['permission']) {
 					redirect($data['base_url'].'home');
 				}
 				else
@@ -64,15 +64,15 @@
 		{
 			$data['base_url'] = base_url();
 			$data['user'] = $this->user_model->get_list();
-			$dulieu = array('user_name'=>$this->input->post('txtUser'),
-							'user_pass'=>$this->input->post('txtPass'),
-							'user_email'=>$this->input->post('txtEmail'),
-							'user_phone'=>$this->input->post('txtPhone'),
-							'user_dname'=>$this->input->post('txtUser'),
-							'user_permission'=> 1);
+			$dulieu = array('name'=>$this->input->post('txtUser'),
+							'pass'=>$this->input->post('txtPass'),
+							'email'=>$this->input->post('txtEmail'),
+							'phone'=>$this->input->post('txtPhone'),
+							'dname'=>$this->input->post('txtUser'),
+							'permission'=> 1);
 			$isDouble = 0;
 			foreach ($data['user'] as $key => $value) {
-				if ($value->user_name == $dulieu['user_name']) {
+				if ($value->name == $dulieu['name']) {
 					$isDouble = 1;
 					break;
 				}
