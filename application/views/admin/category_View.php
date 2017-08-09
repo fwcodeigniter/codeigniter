@@ -16,7 +16,7 @@
 							<form class="form-horizontal" action="<?php echo $base_url; ?>/admin/category/add" method="POST">
 								<div class="row">
 									<div class="col-xs-9">
-										<input class="form-control" type="text" name="txtName" placeholder="Tên Nhóm hàng" />
+										<input class="form-control" type="text" name="txtName" placeholder="Tên Nhóm hàng" pattern="+[a-zA-Z0-9]" />
 									</div>
 									<div class="col-xs-3">
 										<input class="form-control hbtn" type="submit" class="btn btn-default" value="Lưu">
@@ -50,7 +50,7 @@
 							<?php echo $value->id; ?>
 						</td>
 						<td class="cart_description">
-							<?php echo $value->cat_name; ?>
+							<?php echo $value->name; ?>
 						</td>
 						<td class="cart_price">
 							
@@ -71,7 +71,7 @@
 											<form class="form-horizontal" action="<?php echo $base_url; ?>/admin/category/update/<?php echo $value->id; ?>" method="POST">
 												<div class="row">
 													<div class="col-xs-9">
-														<input class="form-control" type="text" name="txtName" value="<?php echo $value->cat_name; ?>" />
+														<input class="form-control" type="text" name="txtName" value="<?php echo $value->name; ?>" pattern="+[a-zA-Z0-9]" />
 													</div>
 													<div class="col-xs-3">
 														<input class="form-control hbtn" type="submit" class="btn btn-default" value="Lưu">
@@ -95,7 +95,7 @@
 										<div class="modal-body">
 											<form class="form-horizontal" action="<?php echo $base_url; ?>/admin/category/drop/<?php echo $value->id; ?>">
 												<div class="row">
-													<h4 style="padding-left: 10px; margin-bottom: 10px;"><i>Bạn muốn xóa Nhóm hàng <?php echo $value->cat_name; ?> ?</i></h4>
+													<h4 style="padding-left: 10px; margin-bottom: 10px;"><i>Bạn muốn xóa Nhóm hàng <?php echo $value->name; ?> ?</i></h4>
 												</div>
 												<div class="row">
 													<div class="col-xs-3 col-xs-offset-6">

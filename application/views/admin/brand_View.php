@@ -13,10 +13,10 @@
 							<h4 class="modal-title">Thêm Thương hiệu</h4>
 						</div>
 						<div class="modal-body">
-							<form class="form-horizontal" onload="brand_name.focus()" action="<?php echo $base_url; ?>admin/brand/add" method="POST">
+							<form class="form-horizontal" onload="name.focus()" action="<?php echo $base_url; ?>admin/brand/add" method="POST">
 								<div class="row">
 									<div class="col-xs-9">
-										<input class="form-control" id="brand_name" type="text" name="txtName" placeholder="Tên Thương hiệu" />
+										<input class="form-control" id="name" type="text" name="txtName" placeholder="Tên Thương hiệu" pattern="+[a-zA-Z0-9]" />
 									</div>
 									<div class="col-xs-3">
 										<input class="form-control hbtn" type="submit" class="btn btn-default" value="Lưu">
@@ -50,7 +50,7 @@
 							<?php echo $value->id; ?>
 						</td>
 						<td class="cart_description">
-							<?php echo $value->brand_name; ?>
+							<?php echo $value->name; ?>
 						</td>
 						<td class="cart_price">
 							
@@ -71,7 +71,7 @@
 											<form class="form-horizontal" action="<?php echo $base_url; ?>admin/brand/update/<?php echo $value->id; ?>" method="POST">
 												<div class="row">
 													<div class="col-xs-9">
-														<input class="form-control" type="text" name="txtName" value="<?php echo $value->brand_name; ?>" />
+														<input class="form-control" type="text" name="txtName" value="<?php echo $value->name; ?>" pattern="+[a-zA-Z0-9]" />
 													</div>
 													<div class="col-xs-3">
 														<input class="form-control hbtn" type="submit" class="btn btn-default" value="Lưu">
@@ -95,7 +95,7 @@
 										<div class="modal-body">
 											<form class="form-horizontal" action="<?php echo $base_url; ?>/admin/brand/drop/<?php echo $value->id; ?>">
 												<div class="row">
-													<h4 style="padding-left: 10px; margin-bottom: 10px;"><i>Bạn muốn xóa Thương hiệu <?php echo $value->brand_name; ?> ?</i></h4>
+													<h4 style="padding-left: 10px; margin-bottom: 10px;"><i>Bạn muốn xóa Thương hiệu <?php echo $value->name; ?> ?</i></h4>
 												</div>
 												<div class="row">
 													<div class="col-xs-3 col-xs-offset-6">

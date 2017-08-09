@@ -77,5 +77,16 @@
     <script src="<?php echo $base_url; ?>public/js/jquery.prettyPhoto.js"></script>
     <script src="<?php echo $base_url; ?>public/js/main.js"></script>
     <script src="<?php echo $base_url; ?>public/js/thien.js"></script>
+    <script type="text/javascript">
+    	function file_change(f){
+		    var reader = new FileReader();
+		    reader.onload = function (e) {
+		       	var img = document.getElementById("img");
+		        img.src = e.target.result;
+		        img.style.display = "inline";
+	    };
+	    reader.readAsDataURL(f.files[0]);
+}
+    </script>
 </body>
 </html>
