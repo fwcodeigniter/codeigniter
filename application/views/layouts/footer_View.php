@@ -78,15 +78,16 @@
     <script src="<?php echo $base_url; ?>public/js/main.js"></script>
     <script src="<?php echo $base_url; ?>public/js/thien.js"></script>
     <script type="text/javascript">
-    	function file_change(f){
+    	function file_change(f,id){
 		    var reader = new FileReader();
 		    reader.onload = function (e) {
-		       	var img = document.getElementById("img");
-		        img.src = e.target.result;
-		        img.style.display = "inline";
+		       	// var img = document.getElementById(id);
+		        id.src = e.target.result;
+		        id.style.display = "inline";
 	    };
 	    reader.readAsDataURL(f.files[0]);
-}
+		}
+		
     </script>
 </body>
 </html>
