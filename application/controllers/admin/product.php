@@ -30,6 +30,7 @@
 		public function add()
 		{
 			$data['base_url'] = base_url();
+
 			$dulieu = array('name'=>$this->input->post('txtName'),
 							'price'=>$this->input->post('txtPrice'),
 							'inventory'=>$this->input->post('txtInventory'),
@@ -37,10 +38,27 @@
 							'brand_id'=>$this->input->post('txtBrand'),);
 			//upload file
 			$config = array();
-			$config['upload_path'] = $data['base_url'].'public/images/products'; //thu mục chứa hình
+			$config['upload_path'] = './public/images/home'; //thu mục chứa hình
 			$config['allowed_types'] = 'jpg|png|gif'; //Loại file cho phép
-			$config['file_name'] = time();
+			$config['file_name'] = date('ymdhis').str_replace('image/','.',$_FILES['image']['type']);
+			//load thư viện upload
+	         $this->load->library('upload', $config);
+	         //thuc hien upload
+	         if($this->upload->do_upload('image'))
+	         {
+	             //chua mang thong tin upload thanh con
+	             $file_data = $this->upload->data();
+	            $dulieu['image'] = $file_data['file_name'];
+	         }
+	         else
+         {
+            //hien thi lỗi nếu có
+            $error = $this->upload->display_errors();
+            echo $error;
+         }
 			//end upload file
+	         
+	         $dulieu['created'] = date('Y-m-d');
 			if ($this->product_model->create($dulieu)) {
 				$data['result'] = TRUE;
 			}
@@ -48,7 +66,7 @@
 			{
 				$data['result'] = FALSE;
 			}
-			redirect($data['base_url'].'admin/category');
+			redirect($data['base_url'].'admin/product');
 		}
 		public function drop($id = '')
 		{
@@ -71,7 +89,46 @@
 		}
 		public function update($id = '')
 		{
-			$dulieu = array('name'=>$this->input->post('txtName'));
+			$data['base_url'] = base_url();
+
+			$dulieu = array('name'=>$this->input->post('txtName'),
+							'price'=>$this->input->post('txtPrice'),
+							'inventory'=>$this->input->post('txtInventory'),
+							'cat_id'=>$this->input->post('txtCat'),
+							'brand_id'=>$this->input->post('txtBrand'),
+							'description'=>$this->input->post('txtDesc'));
+			$num = $this->input->post('txtNum');
+			// echo $_FILES['image'.$num]['name'];
+			//upload file
+			if ($_FILES['image'.$num]['name']!='')
+			{
+				
+				$config = array();
+				$config['upload_path'] = './public/images/products'; //thu mục chứa hình
+				$config['allowed_types'] = 'jpg|png|gif|jpeg'; //Loại file cho phép
+				$config['file_name'] = date('ymdhis').str_replace('image/','.',$_FILES['image'.$num]['type']);
+
+				//load thư viện upload
+		        $this->load->library('upload', $config);
+		         //thuc hien upload
+		        if($this->upload->do_upload('image'.$num))
+		        {
+		             //chua mang thong tin upload thanh con
+		            $file_data = $this->upload->data();
+		            $dulieu['image'] = $file_data['file_name'];
+		        }
+		        else
+	         	{
+	            //hien thi lỗi nếu có
+	            $error = $this->upload->display_errors();
+	            echo $error;
+	         	}
+		    }
+		    else
+		    {
+		    	$dulieu['image'] = $this->input->post('txtImage');
+		    }
+			//end upload file
 			if ($this->product_model->update($id, $dulieu)) {
 				$data['result'] = TRUE;
 			}
@@ -79,7 +136,6 @@
 			{
 				$data['result'] = FALSE;
 			}
-			$data['base_url'] = base_url();
 			redirect($data['base_url'].'admin/product');
 		}
 	}
