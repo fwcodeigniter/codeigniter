@@ -22,11 +22,14 @@
 			$data['product'] = $this->product_model->get_list();
 			$data['brand'] = $this->brand_model->get_list();
 			$data['pro_count'] = $this->product_model->get_pro_count_by_brand();
-
+			if (isset($this->session->userdata['activeuser'])) {
+				$data['activeuser'] = $this->session->userdata['activeuser'];
+			}
+			
 			$data['base_url'] = base_url();
 			//Load view trang chủ lên
 			$this->load->view('layouts/header_View',$data);
-			$this->load->view('layouts/slider_View',$data);
+			// $this->load->view('layouts/slider_View',$data);
 			$this->load->view('layouts/left_siderbar_View',$data);
 			$this->load->view('layouts/home_View',$data);
 			$this->load->view('layouts/footer_View',$data);

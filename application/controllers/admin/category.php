@@ -27,11 +27,11 @@
 		{
 			$dulieu = array('name'=>$this->input->post('txtName'));
 			if ($this->category_model->create($dulieu)) {
-				$data['result'] = TRUE;
+				$this->session->set_flashdata('success','Thêm Nhóm hàng thành công');
 			}
 			else
 			{
-				$data['result'] = FALSE;
+				$this->session->set_flashdata('fail','Thêm Nhóm hàng thất bại');
 			}
 			$data['base_url'] = base_url();
 			redirect($data['base_url'].'admin/category');
@@ -40,11 +40,11 @@
 		{
 			if ($id!='') {
 				if ($this->category_model->delete($id)) {
-					$data['result'] = 1;
+					$this->session->set_flashdata('success','Xóa Nhóm hàng thành công');
 				}
 				else
 				{
-					$data['result'] = 0;
+					$this->session->set_flashdata('fail','Xóa Nhóm hàng thất bại');
 				}
 			}
 			else
@@ -59,11 +59,11 @@
 		{
 			$dulieu = array('name'=>$this->input->post('txtName'));
 			if ($this->category_model->update($id, $dulieu)) {
-				$data['result'] = TRUE;
+				$this->session->set_flashdata('success','Sửa Nhóm hàng thành công');
 			}
 			else
 			{
-				$data['result'] = FALSE;
+				$this->session->set_flashdata('fail','Sửa Nhóm hàng thất bại');
 			}
 			$data['base_url'] = base_url();
 			redirect($data['base_url'].'admin/category');

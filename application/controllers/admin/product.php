@@ -60,11 +60,11 @@
 	         
 	         $dulieu['created'] = date('Y-m-d');
 			if ($this->product_model->create($dulieu)) {
-				$data['result'] = TRUE;
+				$this->session->set_flashdata('success','Thêm thành công');
 			}
 			else
 			{
-				$data['result'] = FALSE;
+				$this->session->set_flashdata('fail','Thêm thất bại');
 			}
 			redirect($data['base_url'].'admin/product');
 		}
@@ -72,11 +72,11 @@
 		{
 			if ($id!='') {
 				if ($this->product_model->delete($id)) {
-					$data['result'] = 1;
+					$this->session->set_flashdata('success','Xóa thành công');
 				}
 				else
 				{
-					$data['result'] = 0;
+					$this->session->set_flashdata('fail','Xóa thất bại');
 				}
 			}
 			else
@@ -130,11 +130,11 @@
 		    }
 			//end upload file
 			if ($this->product_model->update($id, $dulieu)) {
-				$data['result'] = TRUE;
+				$this->session->set_flashdata('success','Sửa thành công');
 			}
 			else
 			{
-				$data['result'] = FALSE;
+				$this->session->set_flashdata('fail','Sửa thất bại');
 			}
 			redirect($data['base_url'].'admin/product');
 		}

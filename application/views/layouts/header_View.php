@@ -89,10 +89,14 @@
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-user"></i> Tài khoản</a></li>
+								<!-- <li><a href="#"><i class="fa fa-user"></i> Tài khoản</a></li> -->
 								<li><a href="<?php echo $base_url; ?>checkout"><i class="fa fa-crosshairs"></i> Thanh toán</a></li>
 								<li><a href="<?php echo $base_url; ?>cart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
-								<li><a href="<?php echo $base_url; ?>login"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+								<?php if (isset($activeuser)): ?>
+								<li><a href="<?php echo $base_url; ?>admin/signin/signout"><i class="fa fa-lock"></i> Đăng xuất</a></li>
+								<?php else: ?>
+								<li><a href="<?php echo $base_url; ?>admin/login"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+								<?php endif; ?>
 							</ul>
 						</div>
 					</div>
