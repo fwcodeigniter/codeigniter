@@ -32,9 +32,10 @@
 											'pass' => $value->pass,
 											'dname' => $value->dname,
 											'phone' => $value->phone,
+											'address' => $value->address,
 											'email' => $value->email,
 											'permission' => $value->permission);
-					$this->session->set_userdata($activeuser);
+					$this->session->set_userdata('activeuser',$activeuser);
 					break;
 				}
 				if (($value->name == $dulieu['name'])&&($value->pass != $dulieu['pass'])) {
@@ -44,7 +45,7 @@
 				}
 			}
 			if ($isLogin == 1) {
-				if ($this->session->userdata['permission']) {
+				if ($this->session->userdata['activeuser']['permission']) {
 					redirect($data['base_url'].'home');
 				}
 				else
@@ -59,6 +60,15 @@
 			{
 				redirect($data['base_url'].'admin/login/fail/1');
 			}
+		}
+		//Đăng xuất
+		public function signout()
+		{
+			$data['base_url'] = base_url();
+			$this->session->unset_userdata('activeuser');
+			// var_dump($this->session->userdata['activeuser']);
+			//Load view trang chủ lên
+			redirect($data['base_url']);
 		}
 		public function add()
 		{

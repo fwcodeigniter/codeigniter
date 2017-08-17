@@ -28,6 +28,7 @@
 			$this->load->view('admin/login_View',$data);
 			$this->load->view('layouts/footer_View',$data);
 		}
+		
 		public function fail($status)
 		{
 			$data['base_url'] = base_url();

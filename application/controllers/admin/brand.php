@@ -27,11 +27,11 @@
 		{
 			$dulieu = array('name'=>$this->input->post('txtName'));
 			if ($this->brand_model->create($dulieu)) {
-				$data['result'] = TRUE;
+				$this->session->set_flashdata('success','Thêm thành công');
 			}
 			else
 			{
-				$data['result'] = FALSE;
+				$this->session->set_flashdata('fail','Thêm thất bại');
 			}
 			$data['base_url'] = base_url();
 			redirect($data['base_url'].'admin/brand');
@@ -40,11 +40,11 @@
 		{
 			if ($id!='') {
 				if ($this->brand_model->delete($id)) {
-					$data['result'] = 1;
+					$this->session->set_flashdata('success','Xóa thành công');
 				}
 				else
 				{
-					$data['result'] = 0;
+					$this->session->set_flashdata('fail','Xóa thất bại');
 				}
 			}
 			else
@@ -59,11 +59,11 @@
 		{
 			$dulieu = array('name'=>$this->input->post('txtName'));
 			if ($this->brand_model->update($id, $dulieu)) {
-				$data['result'] = TRUE;
+				$this->session->set_flashdata('success','Sửa thành công');
 			}
 			else
 			{
-				$data['result'] = FALSE;
+				$this->session->set_flashdata('fail','Sửa thất bại');
 			}
 			$data['base_url'] = base_url();
 			redirect($data['base_url'].'admin/brand');

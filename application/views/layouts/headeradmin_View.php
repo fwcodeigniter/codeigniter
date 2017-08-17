@@ -87,7 +87,7 @@
                                     </ul>
                                 </li> 
 								<li><a href="404.html">Đổi mật khẩu</a></li>
-								<li><a href="contact-us.html">Đăng xuất</a></li>
+								<li><a href="<?php echo $base_url; ?>admin/signin/signout">Đăng xuất</a></li>
 							</ul>
 						</div>
 					</div>

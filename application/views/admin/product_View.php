@@ -1,6 +1,8 @@
 
 <section id="cart_items">
 	<div class="container">
+	<div style="display: none;" id="success"><?php echo $this->session->flashdata('success'); ?></div>
+		<div style="display: none;" id="fail"><?php echo $this->session->flashdata('fail'); ?></div>
 		<!-- Form Thêm hàng hóa -->
 		<div class="table-responsive cart_info">
 			<button style="margin-bottom: 5px" type="button" class="btn btn-default hbtn" data-toggle="modal" data-target="#addPro">Thêm Hàng hóa</button>

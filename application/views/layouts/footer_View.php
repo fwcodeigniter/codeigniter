@@ -27,6 +27,7 @@
 								<li><a href="#">Võ Khắc Hoàng Phương</a></li>
 								<li><a href="#">Trần Tấn Vinh</a></li>
 								<li><a href="#">Nguyễn Nam Chinh</a></li>
+								<li><a href="#">Quang Tiên Đạt</a></li>
 							</ul>
 						</div>
 					</div>
@@ -75,6 +76,7 @@
 	<script src="<?php echo $base_url; ?>public/js/jquery.scrollUp.min.js"></script>
 	<script src="<?php echo $base_url; ?>public/js/price-range.js"></script>
     <script src="<?php echo $base_url; ?>public/js/jquery.prettyPhoto.js"></script>
+    <script src="<?php echo $base_url; ?>public/js/notify.min.js"></script>
     <script src="<?php echo $base_url; ?>public/js/main.js"></script>
     <script src="<?php echo $base_url; ?>public/js/thien.js"></script>
     <script type="text/javascript">
@@ -87,7 +89,21 @@
 	    };
 	    reader.readAsDataURL(f.files[0]);
 		}
-		
+		function notify_success(){
+			var txt = document.getElementById('success').innerHTML;
+			// alert(txt);
+			if (txt) {
+
+				$.notify(txt,"success");
+			}
+			var txt = document.getElementById('fail').innerHTML;
+			// alert(txt);
+			if (txt) {
+				$.notify(txt,"error");
+			}
+		}
+
+		$(document).ready(notify_success);
     </script>
 </body>
 </html>
