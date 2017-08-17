@@ -29,7 +29,7 @@
 			$data['base_url'] = base_url();
 			//Load view trang chủ lên
 			$this->load->view('layouts/header_View',$data);
-			// $this->load->view('layouts/slider_View',$data);
+			$this->load->view('layouts/slider_View',$data);
 			$this->load->view('layouts/left_siderbar_View',$data);
 			$this->load->view('layouts/home_View',$data);
 			$this->load->view('layouts/footer_View',$data);
