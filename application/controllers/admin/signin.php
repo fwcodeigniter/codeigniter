@@ -32,6 +32,7 @@
 											'pass' => $value->pass,
 											'dname' => $value->dname,
 											'phone' => $value->phone,
+											'address' => $value->address,
 											'email' => $value->email,
 											'permission' => $value->permission);
 					$this->session->set_userdata('activeuser',$activeuser);
