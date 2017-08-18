@@ -1,5 +1,5 @@
 <div class="col-sm-9 padding-right">
-					<div class="features_items"><!--features_items-->
+					<div class="features_items"><!--features_items
 						<h2 class="title text-center">Tính năng nổi bật</h2>
 						<?php if (isset($product)):
 						foreach ($product as $key => $value): ?>
@@ -28,7 +28,8 @@
 								</div>
 							</div>
 						</div>
-						<?php endforeach; endif; ?>
+						<?php endforeach; endif; ?>-->
+                                                
 						
 					</div>
 
@@ -37,121 +38,56 @@
 					<div class="category-tab"><!--category-tab-->
 						<div class="col-sm-12">
 							<ul class="nav nav-tabs">
-								<li class="active"><a href="#dienthoai" data-toggle="tab">Điện thoại</a></li>
+								<li class="active"><a href=#dienthoai data-toggle="tab">Điện thoại</a></li>
 								<li><a href="#laptop" data-toggle="tab">Laptop</a></li>
 								<li><a href="#maytinhbang" data-toggle="tab">Máy tính bảng</a></li>
                                                                 <li><a href="#mayin" data-toggle="tab">Máy in</a></li>
 							</ul>
 						</div>
 						<div class="tab-content">
-							<div class="tab-pane fade active in" id="dienthoai" >
+                                                    <?php ?>
+							<div class="tab-pane fade active in" <?php ?>id="dienthoai" >
+							
+                                                            <?php if (isset($product)):
+                                                                foreach ($product as $key => $value): ?>
+        
+                                                            <?php if ($value->cat_id==1){ ?>
 								<div class="col-sm-3">
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center">
-												<img src="<?php echo $base_url; ?>/public/images/home/meizu.jpg" alt="" />
-												<h2>4.390.000đ</h2>
-												<p>MEIZU MS3</p>
+												<img src="<?php echo $base_url; ?>/public/images/products/<?php echo $value->image?>" alt="" />
+												<h2><?php echo number_format($value->price,3); echo "đ"?></h2>
+												<p><?php echo $value->name?></p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
 											
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="<?php echo $base_url; ?>/public/images/home/s8.jpg" alt="" />
-												<h2>18.990.000đ</h2>
-												<p>Samsung Galaxy S8 Plus</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="<?php echo $base_url; ?>/public/images/home/xiaomi.jpg" alt="" />
-												<h2>5.690.000đ</h2>
-												<p>Xiaomi Redmi Note 4 32GB</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="<?php echo $base_url; ?>/public/images/home/vivo.jpg" alt="" />
-												<h2>3.990.000đ</h2>
-												<p>Vivo Y55S</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
+                                                            <?php }endforeach; endif; ?>
+ 
 							</div>
 							
 							<div class="tab-pane fade" id="mayin" >
+								<?php if (isset($product)):
+                                                                foreach ($product as $key => $value): ?>
+        
+                                                            <?php if ($value->cat_id==3){ ?>
 								<div class="col-sm-3">
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center">
-												<img src="<?php echo $base_url; ?>/public/images/home/mayin.jpg" alt="" />
-												<h2>20.8690.000đ</h2>
-												<p>Máy in HP LJ Pro MFP M277DW-B3Q11A</p>
+												<img src="<?php echo $base_url; ?>/public/images/products/<?php echo $value->image?>" alt="" />
+												<h2><?php echo number_format($value->price,3); echo "đ"?></h2>
+												<p><?php echo $value->name?></p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
 											
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="<?php echo $base_url; ?>/public/images/home/mayin2.jpg" alt="" />
-												<h2>4.390.000đ</h2>
-												<p>Máy in HP GT5820 (M2Q28A)</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="<?php echo $base_url; ?>/public/images/home/mayin3.jpg" alt="" />
-												<h2>7.280.000đ</h2>
-												<p>Máy in Xerox P365d</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="<?php echo $base_url; ?>/public/images/home/mayin4.jpg" alt="" />
-												<h2>9.315.000đ</h2>
-												<p>Máy in HP 8720-(D9L19A</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
+                                                            <?php }endforeach; endif; ?>			
 							</div>
 							
 							<div class="tab-pane fade" id="maytinhbang" >
