@@ -25,16 +25,46 @@
 		}
 		public function add()
 		{
-			$dulieu = array('name'=>$this->input->post('txtName'));
-			if ($this->user_model->create($dulieu)) {
-				$data['result'] = TRUE;
+			$data['base_url'] = base_url();
+			$data['user'] = $this->user_model->get_list();
+			$dulieu = array('name'=>$this->input->post('txtUser'),
+							'pass'=>$this->input->post('txtPass'),
+							'email'=>$this->input->post('txtEmail'),
+							'phone'=>$this->input->post('txtPhone'));
+			// tạo quyền
+			if (!empty($this->input->post['txtPermission'])) {
+				$dulieu['permission'] = 1;
 			}
 			else
 			{
-				$data['result'] = FALSE;
+				$dulieu['permission'] = 0;
 			}
-			$data['base_url'] = base_url();
-			redirect($data['base_url'].'admin/user');
+			// Kiểm tra Tên hiển thị
+			if (empty($this->input->post('txtName'))) {
+				$dulieu['dname'] = $this->input->post('txtUser');
+			}
+			else
+			{
+				$dulieu['dname'] = $this->input->post('txtName');
+			}
+			$isDouble = 0;
+			foreach ($data['user'] as $key => $value) {
+				if ($value->name == $dulieu['name']) {
+					$isDouble = 1;
+					break;
+				}
+			}
+			if ($isDouble == 1) {
+				$this->session->set_flashdata('fail','Tên đăng nhập đã tồn tại');
+			}
+			elseif ($this->user_model->create($dulieu)) {
+				$this->session->set_flashdata('success','Tạo tài khoản thành công');
+			}
+			else
+			{
+				$this->session->set_flashdata('fail','Tạo tài khoản thất bại');
+			}
+			redirect($base_url.'admin/user');
 		}
 		public function drop($id = '')
 		{
