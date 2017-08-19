@@ -1,20 +1,20 @@
 <div class="col-sm-9 padding-right">
-					<div class="features_items"><!--features_items
+					<div class="features_items">
 						<h2 class="title text-center">Tính năng nổi bật</h2>
-						<?php if (isset($product)):
-						foreach ($product as $key => $value): ?>
+						<?php $dem=0; if (isset($product)):
+						foreach ($product as $key => $value): if($dem<3){?>
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">
 										<div class="productinfo text-center">
-											<img src="<?php echo $base_url; ?>/public/images/home/<?php echo $value->image; ?>" alt="" />
-											<h2><?php echo number_format($value->price,0,',','.'); ?></h2>
+											<img src="<?php echo $base_url; ?>/public/images/products/<?php echo $value->image; ?>" alt="" />
+											<h2><?php echo number_format($value->price,3,'.','.'); echo "đ"?></h2>
 											<p><?php echo $value->name; ?></p>
 											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 										</div>
 										<div class="product-overlay">
 											<div class="overlay-content">
-												<h2><?php echo number_format($value->price,0,',','.'); ?></h2>
+												<h2><?php echo number_format($value->price,3,'.','.'); echo "đ"; ?></h2>
 												<p><?php echo $value->name; ?></p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
@@ -28,7 +28,7 @@
 								</div>
 							</div>
 						</div>
-						<?php endforeach; endif; ?>-->
+                                                <?php  $dem++;} endforeach;endif; ?>-->
                                                 
 						
 					</div>
@@ -57,7 +57,7 @@
 										<div class="single-products">
 											<div class="productinfo text-center">
 												<img src="<?php echo $base_url; ?>/public/images/products/<?php echo $value->image?>" alt="" />
-												<h2><?php echo number_format($value->price,3); echo "đ"?></h2>
+												<h2><?php echo number_format($value->price,3,'.','.'); echo "đ"?></h2>
 												<p><?php echo $value->name?></p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
@@ -79,7 +79,7 @@
 										<div class="single-products">
 											<div class="productinfo text-center">
 												<img src="<?php echo $base_url; ?>/public/images/products/<?php echo $value->image?>" alt="" />
-												<h2><?php echo number_format($value->price,3); echo "đ"?></h2>
+												<h2><?php echo number_format($value->price,3,'.','.'); echo "đ"?></h2>
 												<p><?php echo $value->name?></p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
@@ -97,7 +97,7 @@
 										<div class="single-products">
 											<div class="productinfo text-center">
 												<img src="<?php echo $base_url; ?>/public/images/products/<?php echo $value->image?>" alt="" />
-												<h2><?php echo number_format($value->price,3); echo "đ"?></h2>
+												<h2><?php echo number_format($value->price,3,'.','.'); echo "đ"?></h2>
 												<p><?php echo $value->name?></p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
@@ -118,7 +118,7 @@
 										<div class="single-products">
 											<div class="productinfo text-center">
 												<img src="<?php echo $base_url; ?>/public/images/products/<?php echo $value->image?>" alt="" />
-												<h2><?php echo number_format($value->price,3); echo "đ"?></h2>
+												<h2><?php echo number_format($value->price,3,'.','.'); echo "đ"?></h2>
 												<p><?php echo $value->name?></p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
@@ -202,7 +202,7 @@
 
 												<div class="productinfo text-center">
 													<img src="<?php echo $base_url; ?>/public/images/products/<?php echo $value->image?>" alt="" />
-                                                                                                        <h2><?php echo number_format($value->price,3); echo "đ"?></h2>
+                                                                                                        <h2><?php echo number_format($value->price,3,'.','.'); echo "đ"?></h2>
                                                                                                         <p><?php echo $value->name?></p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 												</div>
