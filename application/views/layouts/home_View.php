@@ -57,7 +57,7 @@
 										</div>
 									</div>
 								</div>
-                                                            <?php }endforeach; endif; ?>
+                                                            <?php endforeach; endif; ?>
  
 							</div>
 							

@@ -102,12 +102,7 @@
 				$.notify(txt,"error");
 			}
 		}
-		function showPass(){
-			$('input[name="txtPass"]').attr('type','text');
-		}
-		function hidePass(){
-			$('input[name="txtPass"]').attr('type','password');
-		}
+
 		$(document).ready(notify_success);
     </script>
 </body>
