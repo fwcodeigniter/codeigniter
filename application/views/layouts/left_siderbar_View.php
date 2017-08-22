@@ -78,9 +78,9 @@
 							if (isset($category)): 
 								foreach ($category as $key => $value): ?>
 							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#"><?php echo $value->name; ?></a></h4>
-								</div>
+								<a href="<?php echo $base_url.'home/category/'.$value->id; ?>"><div class="panel-heading <?php echo ($value->id == $active_cat)?'selected':''; ?>">
+									<h4 class="panel-title"><?php echo $value->name; ?></h4>
+								</div></a>
 							</div>
 						<?php 
 							endforeach;
