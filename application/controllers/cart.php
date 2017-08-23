@@ -8,16 +8,26 @@ Class Cart extends MY_Controller {
        $this->load->library('cart');
        
         //load Database
-       $this->load->database();
+//       $this->load->database();
        
     }
 
  function add()
     {
-
-    
-    {
-        //lay ra san pham muon them vao gio hang
+      $carts = array( array ('id'    => 1,
+                            'qty'   => 10,
+                            'price' => 6290000,
+                            'name'  => 'Laptop Asus E402SA '),
+                            
+                      array ('id'    => 2,
+                            'qty'   => 2,
+                            'price' => 12900000,
+                            'name'  => 'Laptop Dell Inspiron 3467'),
+        );
+        //goi phương thức thêm vào giỏ hàng
+        $this->cart->insert($carts);
+     
+   /*  //   lay ra san pham muon them vao gio hang
         $this->load->model('product_model');
         $id = $this->uri->rsegment(3);
         $id = $this->product_model->get_info($id);
@@ -35,15 +45,16 @@ Class Cart extends MY_Controller {
         
         //thong tin them vao gio hang
         $data = array();
-        $data['id'] = $product->id_product;
+        $data['id'] = $product->id;
         $data['qty'] = $qty;
-        $data['name'] = url_title($product->name);
-        $data['image']  = $product->image;
+        $data['name'] = $product->name;
+
         $data['price'] = $price;
-        $this->cart->insert($data);
+        $this->cart->insert($data);*/
         
         //chuyen sang trang danh sach san pham trong gio hang
-        redirect(base_url('site/cart/index'));
+        redirect(base_url('cart'));
+     
     }
     
     function index() {
@@ -53,7 +64,7 @@ Class Cart extends MY_Controller {
         $this->data['total_items'] = $total_items;
         // load view
         $this->data['temp'] = 'site/cart/index';
-     
+        $this->data['base_url'] = base_url();
         $this->load->view('layouts/header_View', $this->data);
         $this->load->view('site/cart/index', $this->data);
         $this->load->view('layouts/footer_View', $this->data);
@@ -93,5 +104,4 @@ Class Cart extends MY_Controller {
         redirect(base_url('cart'));
     }
 
-}
 }

@@ -10,14 +10,11 @@
         <div class="checkout-options">
             <ul class="nav">
                 <li>
-                    <a href="<?php echo base_url('user/login')?>"><label> Đăng nhập </label> </a>
-                </li>
-                <li>
-                    <a href="<?php echo base_url('user/register')?>"><label> Đăng ký tài khoản</label></a>
+                    <a href="<?php echo base_url('admin/login')?>"><label> Đăng nhập </label> </a>
                 </li>
                 
                 <li>
-                    <a href="<?php echo base_url('cart/index')?>"><i class="fa fa-times"></i>Hủy</a>
+                    <a href="<?php echo base_url('cart/index')?>"><i class="fa fa-times"></i>Quay lại</a>
                 </li>
             </ul>
         </div><!--/checkout-options-->
@@ -50,21 +47,19 @@
                                 <h4><a href=""><?php echo $rows['name']; ?></a></h4>
                             </td>
                             <td class="cart_price">
-                                <p><?php echo $rows['price']; ?></p>
+                                <p><?php echo number_format($rows['price']); ?></p>
                             </td>
                             <td class="cart_quantity">
                                 <div class="cart_quantity_button">
-                                    <a class="cart_quantity_up" href=""> + </a>
+                                    
                                     <input class="cart_quantity_input" type="text" name="qty_<?php echo $rows['id']; ?>" value="<?php echo $rows['qty']; ?>" autocomplete="off" size="2">
-                                    <a class="cart_quantity_down" href=""> - </a>
+                                 
                                 </div>
                             </td>
                             <td class="cart_total">
                                 <p class="cart_total_price"><?php echo number_format($rows['subtotal']); ?> VNĐ</p>
                             </td>
-                            <td class="cart_delete">
-                                <a class="cart_quantity_delete" href="<?php echo site_url('cart/del'); ?>"><i class="fa fa-times"></i></a>
-                            </td>
+                            
                         </tr>
                     <?php endforeach; ?> 
                 </tbody>

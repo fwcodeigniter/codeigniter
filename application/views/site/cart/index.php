@@ -26,12 +26,10 @@
                         <tbody> 
                             <?php $total_amount = 0; ?>
                             <?php foreach ($carts as $rows): ?>
-                                <?php $total_amount = $total_amount + $rows['subtotal']; ?>
+                                <?php $total_amount = $total_amount + $rows['subtotal'];
+                                ?>
                                 <tr>
                                     <td class="cart_product">
-                                        <img src='<?php echo base_url('upload'); ?>/products/<?php echo $rows['image']; ?>
-
-                                             } ?>'
                                     </td>
                                     <td class="cart_description">
                                         <h4><a href=""><?php echo $rows['name']; ?></a></h4>
@@ -42,16 +40,16 @@
                                     </td>
                                     <td class="cart_quantity">
                                         <div class="cart_quantity_button">
-                                            
+
                                             <input class="cart_quantity_input" type="text" name="qty_<?php echo $rows['id']; ?>" value="<?php echo $rows['qty']; ?>" autocomplete="off" size="2">
-                                           
+
                                         </div>
                                     </td>
                                     <td class="cart_total">
                                         <p class="cart_total_price"><?php echo number_format($rows['subtotal']); ?> VNĐ</p>
                                     </td>
                                     <td class="cart_delete">
-                                        <a class="cart_quantity_delete" href="<?php echo base_url('cart/del/'.$rows['id']); ?>"><i class="fa fa-times"></i></a>
+                                        <a class="cart_quantity_delete" href="<?php echo base_url('cart/del/' . $rows['id']); ?>"><i class="fa fa-times"></i></a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?> 
@@ -67,15 +65,15 @@
         <div class="container">
             <div class="row">
                 <div class="total_area">
-                        <ul>
-                            <li>Tạm tính<span><?php echo number_format($total_amount); ?> VNĐ</span></li>
-                            <li>Phí vận chuyển <span>Miễn phí</span></li>
-                            <li>Tổng tiền <span><?php echo number_format($total_amount); ?> VNĐ</span></li>
-                        </ul>
-                        <a class="btn btn-default check_out" href="<?php echo base_url('cart/del'); ?>">Xóa hết</a>
-                        <a class="btn btn-default update" href="">Cập nhật</a>
-                        <a class="btn btn-default check_out" href="<?php echo base_url('order/checkout'); ?>">Thanh toán</a>
-                    
+                    <ul>
+                        <li>Tạm tính<span><?php echo number_format($total_amount); ?> VNĐ</span></li>
+                        <li>Phí vận chuyển <span>Miễn phí</span></li>
+                        <li>Tổng tiền <span><?php echo number_format($total_amount); ?> VNĐ</span></li>
+                    </ul>
+                    <a class="btn btn-default check_out" href="<?php echo base_url('cart/del'); ?>">Xóa hết</a>
+
+                    <a class="btn btn-default check_out" href="<?php echo base_url('order/checkout'); ?>">Thanh toán</a>
+
                 </div>
             </div>
         </div>
