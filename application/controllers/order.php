@@ -5,6 +5,9 @@ Class Order extends MY_Controller {
     function __construct() {
         parent::__construct();
         $this->load->library('cart', 'form_validation');
+        $this->load->model('user_model');
+    //load Database
+	$this->load->database();
     }
 
     function index() { //Hiển thị danh sách sản phẩm trong giỏ hàng
@@ -21,11 +24,12 @@ Class Order extends MY_Controller {
             $this->data['temp'] = 'site/cart/index';
         }
 
-        $data['base_url'] = base_url();
+        
         $this->data['temp'] = 'site/order/checkout';
-        $this->load->view('layouts/header_View', $data);
-        $this->load->view('site/order/checkout', $data);
-        $this->load->view('layouts/footer_View', $data);
+        $this->data['base_url'] = base_url();
+        $this->load->view('layouts/header_View', $this->data);
+        $this->load->view('site/order/checkout', $this->data);
+        $this->load->view('layouts/footer_View', $this->data);
     }
 
     function checkout() {
@@ -47,12 +51,13 @@ Class Order extends MY_Controller {
         $this->data['total_amount'] = $total_amount;
 
         //neu thanh vien da dang nhap thì lay thong tin cua thanh vien
-        $user_id = 0;
+        $id = 0;
         $user = '';
-        if ($this->session->userdata('user_id_login')) {
+        if ($this->session->userdata('activeuser')) {
             //lay thong tin cua thanh vien
-            $user_id = $this->session->userdata('user_id_login');
-            $user = $this->user_model->get_info($user_id);
+            $activeuser = $this->session->userdata('activeuser');
+//            echo $activeuser['id'];
+            $user = $this->user_model->get_info($activeuser['id']);
         }
         $this->data['user'] = $user;
 
@@ -74,7 +79,7 @@ Class Order extends MY_Controller {
                 //them vao csdl
                 $data = array(
                     'status' => 0, //trang thai chua thanh toan
-                    'user_id' => $id_user, //id thanh vien mua hang neu da dang nhap
+                    'id' => $id, //id thanh vien mua hang neu da dang nhap
                     'email' => $this->input->post('email'),
                     'name' => $this->input->post('name'),
                     'phone' => $this->input->post('phone'),
@@ -112,6 +117,7 @@ Class Order extends MY_Controller {
 
         //hiển thị ra view
         $this->data['temp'] = 'site/order/checkout';
+        $this->data['base_url'] = base_url();
         $this->load->view('layouts/header_View', $this->data);
         $this->load->view('site/order/checkout', $this->data);
         $this->load->view('layouts/footer_View', $this->data);
