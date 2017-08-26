@@ -38,24 +38,25 @@
 							'brand_id'=>$this->input->post('txtBrand'),);
 			//upload file
 			$config = array();
-			$config['upload_path'] = './public/images/home'; //thu mục chứa hình
-			$config['allowed_types'] = 'jpg|png|gif'; //Loại file cho phép
+			$config['upload_path'] = './public/images/products'; //thu mục chứa hình
+			$config['allowed_types'] = 'jpg|png|gif|jpeg'; //Loại file cho phép
 			$config['file_name'] = date('ymdhis').str_replace('image/','.',$_FILES['image']['type']);
-			//load thư viện upload
-	         $this->load->library('upload', $config);
-	         //thuc hien upload
-	         if($this->upload->do_upload('image'))
-	         {
-	             //chua mang thong tin upload thanh con
-	             $file_data = $this->upload->data();
-	            $dulieu['image'] = $file_data['file_name'];
-	         }
-	         else
-         {
-            //hien thi lỗi nếu có
-            $error = $this->upload->display_errors();
-            echo $error;
-         }
+//                        var_dump($config);
+				//load thư viện upload
+		        $this->load->library('upload', $config);
+		         //thuc hien upload
+		        if($this->upload->do_upload('image'))
+		        {
+		             //chua mang thong tin upload thanh con
+		            $file_data = $this->upload->data();
+		            $dulieu['image'] = $file_data['file_name'];
+		        }
+		        else
+	         	{
+	            //hien thi lỗi nếu có
+	            $error = $this->upload->display_errors();
+	            echo $error;
+	         	}
 			//end upload file
 	         
 	         $dulieu['created'] = date('Y-m-d');
@@ -68,6 +69,8 @@
 			}
 			redirect($data['base_url'].'admin/product');
 		}
+                
+                //Xóa hàng hóa
 		public function drop($id = '')
 		{
 			if ($id!='') {

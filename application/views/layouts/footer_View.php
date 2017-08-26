@@ -79,36 +79,6 @@
     <script src="<?php echo $base_url; ?>public/js/notify.min.js"></script>
     <script src="<?php echo $base_url; ?>public/js/main.js"></script>
     <script src="<?php echo $base_url; ?>public/js/thien.js"></script>
-    <script type="text/javascript">
-    	function file_change(f,id){
-		    var reader = new FileReader();
-		    reader.onload = function (e) {
-		       	// var img = document.getElementById(id);
-		        id.src = e.target.result;
-		        id.style.display = "inline";
-	    };
-	    reader.readAsDataURL(f.files[0]);
-		}
-		function notify_success(){
-			var txt = document.getElementById('success').innerHTML;
-			// alert(txt);
-			if (txt) {
-
-				$.notify(txt,"success");
-			}
-			var txt = document.getElementById('fail').innerHTML;
-			// alert(txt);
-			if (txt) {
-				$.notify(txt,"error");
-			}
-		}
-		function showPass(){
-			$('input[name="txtPass"]').attr('type','text');
-		}
-		function hidePass(){
-			$('input[name="txtPass"]').attr('type','password');
-		}
-		$(document).ready(notify_success);
-    </script>
+    
 </body>
 </html>
